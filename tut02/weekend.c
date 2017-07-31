@@ -1,5 +1,4 @@
-// Takes in a number from 0-6 and print out
-// the corosponding weekday
+// Takes in a number 0-6 and print if it is a weekend
 // Helena Kertesz (z5059868)
 // Tutor: Peter Kerr (T15B)
 // Created 31/07/2017
