@@ -9,7 +9,14 @@
 int main(int argc, char* argv[]){
 
     // using scanf
+    int weekNum;
+    scanf("%d", weekNum);
 
     //style for if ... else if ... else
+    if( weekNum > 0 && weekNum < 5 ){
+        print("%d is not a weekend,\n");
+    } else {
+        print("%d is a weekend,\n");
+    }
 
 }
