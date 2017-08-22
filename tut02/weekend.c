@@ -1,7 +1,7 @@
 // Takes in a number 0-6 and print if it is a weekend
 // Helena Kertesz (z5059868)
-// Tutor: Peter Kerr (T15B)
-// Created 31/07/2017
+// Tutor: Cadel Watson (W09A)
+// Created 02/08/2017
 
 #include<stdlib.h>
 #include<stdio.h>
@@ -9,14 +9,17 @@
 int main(int argc, char* argv[]){
 
     // using scanf
-    int weekNum;
-    scanf("%d", weekNum);
+    int weekDay = 0;
+    scanf("%d", &weekDay);
 
     //style for if ... else if ... else
-    if( weekNum > 0 && weekNum < 5 ){
-        print("%d is not a weekend,\n");
+    if (weekDay < 0 || weekDay > 6) {           // check the value given is in the right range
+        printf("Invalid\n");
+    } else if (weekDay == 0 || weekDay == 6) { // check for weekend
+        printf("%d is a weekend.\n", weekDay);
     } else {
-        print("%d is a weekend,\n");
+        printf("%d is not a weekend.\n", weekDay);
     }
 
+    return EXIT_SUCCESS;
 }

@@ -8,22 +8,28 @@
 
 int main(){
 
-    int width = 0;
-    int height = 0;
+    int size = 0;
 
-    printf("What width? ");
-    scanf("%d", &width);
-    printf("What height? ");
-    scanf("%d", &height);
+    printf("What size? ");
+    scanf("%d", &size);
 
-    /************* insert code here ****************/
+    // using nested while loops to print a rectangle
+    int row = 0;
 
-    while( height > 0 ){
-        printf("cats\n");
+    // runs the inner while loop multiple times
+    while( row < size ){
+        int i = 0;
+
+        // prints one row
+        while (i <= row) {
+            printf("*");
+            i++;
+        }
+
+        printf("\n"); // new line between each row
+
+        row++;
     }
-
-
-    /***********************************************/
 
     return EXIT_SUCCESS;
 }

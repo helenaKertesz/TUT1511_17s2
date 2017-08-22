@@ -13,13 +13,12 @@ int main(){
     int a = 2;
     int b = 4;
     printf("%d - %d\n", a, b);
-    // printf("a at %p, b at %p", &a, &b);
+    printf("a at %p, b at %p\n", &a, &b);
 
 
     /********** swap **********/
 
-
-    // swap(a, b);
+    swap(a, b); // This doesn't work!!
 
     /**************************/
 
@@ -29,7 +28,9 @@ int main(){
 }
 
 void swap( int num1, int num2 ){
-    // printf("num1 at %p, num2 at %p", &num1, &num2);
-
+    printf("num1 at %p, num2 at %p\n", &num1, &num2);
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
 
 }

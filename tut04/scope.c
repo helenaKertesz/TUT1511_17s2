@@ -3,13 +3,13 @@
  * Written by Helena Kertesz
  * May 5th 2016
  *
+ * THIS IS A TRCKY ONE WITH RECURSION.
+ *
  */
 
 #include<stdio.h>
 
 int rawr( int c, int b);
-
-int a = 0;
 
 int main(){
 
@@ -27,6 +27,7 @@ int main(){
 int rawr( int c, int b){
     int d;
     int e = 0;
+    int a = 0;
     d = a + b - c;
 
     if( c > 0){
@@ -34,7 +35,6 @@ int rawr( int c, int b){
     }
 
     c = c + e;
-    printf("a = %d, b = %d, c= %d, d= %d, e = %d\n", a, b, c, d, e);
     return c;
 }
 
