@@ -5,21 +5,13 @@
 
 int main(){
 
-    int c = 10;
-    int* point = &c;
+    int num = 10;
+    int* point = &num;
+    // &num gives us the adress of num. We want to store this in a variable.
+    // The variable type is int* ( a pointer to an int)
 
     printf("point is %p\n", point);
-    printf("*point is %d\n", *point);
-
-    //printf("*c is ???", *c);
-
-    /*
-     * STRING MAGIC (do once we've gone over arrays
-    char * word = "cats"; //string litteral - is stored elsewhere and the pointer to it put into word
-    printf("word is %p\n", word);
-    printf("*word is %c\n", *word);
-    printf("word is %s\n", word);
-    */
+    printf("*point is %d\n", *point); // the * opperator can also be used on a variable to de-reference it (find the "value at" it).
 
     return EXIT_SUCCESS;
 }

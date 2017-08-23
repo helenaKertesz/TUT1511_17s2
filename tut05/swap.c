@@ -7,25 +7,26 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-void swap( int num1, int num2);
+void swap( int* num1, int* num2);
 
 int main(){
     int a = 2;
     int b = 4;
     printf("%d - %d\n", a, b);
-    printf("a at %p, b at %p\n", &a, &b);
 
-    swap(a, b);
+    swap(&a, &b);
 
     printf("%d - %d\n", a, b);
 
     return EXIT_SUCCESS;
 }
 
-void swap( int num1, int num2 ){
-    printf("num1 at %p, num2 at %p\n", &num1, &num2);
-    int temp = num1;
-    num1 = num2;
-    num2 = temp;
+
+// instead of passing this function copies of the ints i main, we pass pointers to the original variables
+void swap( int* num1, int* num2 ){
+    // we use * to get and set the value pointed to by num1 and num2
+    int temp = *num1;
+    *num1 = *num2;
+    *num2 = temp;
 
 }
