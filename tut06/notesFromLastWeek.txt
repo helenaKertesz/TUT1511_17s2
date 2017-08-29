@@ -1,0 +1,25 @@
+
+using "*"
+--------------------------------------------------------------
+There are 2 uses for * when it comes to pointers:
+
+1) If you declare a variable as <type>* <var name>
+   (ie. int* a )
+   Then that variable is a pointer to something of that type.
+   (ie. a is a pointer to an int)
+
+2) If you put a * before pointer variable it "dereferences" it (find the value it is pointing to)
+   So, now that I've declared int* a as a pointer, if I printed *a it would be the value that a is pointing to.
+
+
+arrays
+--------------------------------------------------------------
+Arrays are ordered lists of the same type. You can access elements in an array using <array name>[<element number>]
+(ie. if I had int array[3] = {1, 2, 3}, I could access the first element using array[0])
+
+However, if you were to pass an array to a function, it would be silly to copy every element of the array
+into a new variable in that function. Instead, we pass the function a pointer to the array. The array name on it's own
+("array" rather than "array[1]") is this pointer.
+
+Note that in this case the type "int a[]" is the same as "int* a". They are both pointers to ints, it's just more clear
+in the first case that the int a points to is actually the first in an array of ints.
