@@ -11,6 +11,9 @@ There are 2 uses for * when it comes to pointers:
 2) If you put a * before pointer variable it "dereferences" it (find the value it is pointing to)
    So, now that I've declared int* a as a pointer, if I printed *a it would be the value that a is pointing to.
 
+(it's also used for multiplication)
+
+
 
 arrays
 --------------------------------------------------------------

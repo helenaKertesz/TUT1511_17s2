@@ -7,7 +7,6 @@
 #include <stdlib.h>
 #include <math.h>
 
-// DO NOT CHANGE THIS STRUCT
 typedef struct _complex {
     double real;
     double imaginary;
@@ -15,7 +14,6 @@ typedef struct _complex {
 
 double complexAbsolute(complex c);
 
-// DO NOT CHANGE THIS MAIN FUNCTION
 int main (int argc, char *argv[]) {
 
     complex c; // make an empty copmlex number
@@ -34,29 +32,13 @@ int main (int argc, char *argv[]) {
 
     return EXIT_SUCCESS;
 }
-// END OF MAIN FUNCTION
-
-
-
-
-
 
 // this function returns the magnitude (absolute value)
 // of a complex number
 double complexAbsolute(complex c) {
-    // PUT YOUR CODE HERE;
     // abs = sqrt( img^2 + real^2);
+    double abs = sqrt(c.imaginary*c.imaginary + c.real*c.real);
+    // make sure you compile with -lm
 
-    return 0; // CHANGE THIS TO YOUR RETURN VALUE
+    return abs; // CHANGE THIS TO YOUR RETURN VALUE
 }
-
-
-
-
-
-
-
-
-
-
-

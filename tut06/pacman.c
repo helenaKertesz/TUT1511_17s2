@@ -7,13 +7,11 @@
 // $ ./pacman > pacman.bmp
 // $ eog pacman.bmp &
 
-
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 
-#define SIZE 3
+#define SIZE 100
 
 // For writing BMP
 #define PIXEL_START 26
@@ -23,13 +21,15 @@
 #define HEADER_SIZE 12
 
 typedef struct _pixel {
-    unsigned char red;  // why a char?
+    unsigned char red;
     unsigned char green;
     unsigned char blue;
 } pixel;
 
 void drawPacman(pixel pixels[SIZE][SIZE]);
-void writeImage(int output, pixel pixels[SIZE][SIZE]); // Write an image to output
+
+// Write an image to output
+void writeImage(int output, pixel pixels[SIZE][SIZE]);
 
 int main(int argc, char *argv[]) {
     // Pixel 2-dimensional array
@@ -44,15 +44,49 @@ int main(int argc, char *argv[]) {
     return EXIT_SUCCESS;
 }
 
+
+
+
+
+
+
+
 // Draws a 3x3 image of pacman
-// B Y B
-// Y Y Y
-// B Y B
 void drawPacman(pixel pixels[SIZE][SIZE]) {
 
-    // itterate through a 2D array.
+    int col = 0;
+    while( col < SIZE ){
+        int row = 0;
+        while( row < SIZE ){
+
+            // usinging mathematical formula for a circle
+            if( (row-SIZE/2)*(row-SIZE/2)
+                    + (col-SIZE/2)*(col-SIZE/2)  <= SIZE/2*SIZE/2 ){
+
+                pixels[col][row].red = 255;
+                pixels[col][row].green = 255;
+                pixels[col][row].blue = 0;
+            } else {
+                pixels[col][row].red = 0;
+                pixels[col][row].green = 0;
+                pixels[col][row].blue = 0;
+            }
+            row++;
+        }
+        col++;
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
 
 // Writes the pixels as a BMP file using the specification from
 // https://en.wikipedia.org/wiki/BMP_file_format
@@ -61,15 +95,15 @@ void writeImage(int output, pixel pixels[SIZE][SIZE]) {
     write(output, "BM", 2);
 
     // File size
-    int rowSize = SIZE * PIXEL_BYTES;
-    int rowPadding = 0;
+    unsigned int rowSize = SIZE * PIXEL_BYTES;
+    unsigned int rowPadding = 0;
     if (rowSize % PIXEL_ALIGN != 0) {
         // Padd pixel to align properly
         rowPadding = PIXEL_ALIGN - (rowSize % PIXEL_ALIGN);
         rowSize += rowPadding;
     }
 
-    int fileSize = PIXEL_START + (rowSize * SIZE);
+    unsigned int fileSize = PIXEL_START + (rowSize * SIZE);
     write(output, (char *)&fileSize, sizeof(fileSize));
 
     // 4 reserved bytes
@@ -77,28 +111,28 @@ void writeImage(int output, pixel pixels[SIZE][SIZE]) {
 
     // start of pixel data
     // pixels start immediately after header
-    int pixelStart = PIXEL_START;
+    unsigned int pixelStart = PIXEL_START;
     write(output, (char *)&pixelStart, sizeof(pixelStart));
 
     // Size of header
-    int headerSize = HEADER_SIZE;
+    unsigned int headerSize = HEADER_SIZE;
     write(output, (char *)&headerSize, sizeof(headerSize));
 
     // Image width and height
-    short size = SIZE;
+    unsigned short size = SIZE;
     write(output, (char *)&size, sizeof(size));
     write(output, (char *)&size, sizeof(size));
 
     // Number of image planes (1)
-    short planes = 1;
+    unsigned short planes = 1;
     write(output, (char *)&planes, sizeof(planes));
 
     // Number of bits per pixel (24)
-    short bitsPerPixel = PIXEL_BITS;
+    unsigned short bitsPerPixel = PIXEL_BITS;
     write(output, (char *)&bitsPerPixel, sizeof(bitsPerPixel));
 
     // Write each of the pixels
-    int padding = 0x01234567;
+    unsigned int padding = 0x01234567;
     int y = 0;
     while (y < SIZE) {
         int x = 0;
@@ -116,3 +150,4 @@ void writeImage(int output, pixel pixels[SIZE][SIZE]) {
         y++;
     }
 }
+
