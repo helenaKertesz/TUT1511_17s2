@@ -18,7 +18,12 @@
 #define TRUE 1
 #define FALSE !(TRUE)
 
+#include <assert.h>
+
+
 int containsUppercase (char *string) {
     // Write your solution here.
+    
+    
     return 0;
 }

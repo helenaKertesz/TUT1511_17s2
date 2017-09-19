@@ -31,5 +31,44 @@
 #define NO_DUPLICATE -1
 
 int findDuplicate (int length, int array[]) {
-    return 0;
+
+    int i = 0;
+    int j = 0;
+    int dup = NO_DUPLICATE; // initally assume no duplicate
+
+    // Loop through the array
+    while( i < length ){
+
+        // for each point in the array, loop through the whole array again
+        while( j < length ){
+            // if the same value is found (ignoring the case when i and j are the same)
+            if( array[j] == array[i] && i != j ){
+                // store the duplicate value
+                dup = array[i];
+            }
+            j++;
+        }
+        j = 0;
+        i++;
+    }
+
+    return dup;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
