@@ -7,7 +7,7 @@
 #include <string.h>
 #include "catADT.h"
 
-
+// Note that the struct is now in the .c file
 typedef struct _cat {
     char* name;
     int age;
@@ -18,6 +18,7 @@ typedef struct _cat {
 Cat newCat (char* name, int age, double weight){
     Cat c = calloc(1,  sizeof(cat)); // NOTE THAT IT IS sizeof(cat) not sizeof(Cat)
 
+    // Have to check if calloc worked!
     if( c == NULL ){
         fprintf (stderr, "couldn't allocate memory: %s", strerror (errno));
         exit (1);
@@ -53,4 +54,5 @@ double getWeight ( Cat c ){
 Cat getKitten( Cat a, Cat b){
     double weight = (getWeight(a) + getWeight(b))/4.0;
     Cat kitten = newCat( "Kit", 0, weight );
+    return kitten;
 }

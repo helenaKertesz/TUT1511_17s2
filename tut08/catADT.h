@@ -4,6 +4,8 @@
 #ifndef COMPLEX_H_
 #define COMPLEX_H_
 
+// typedef a pointer since it's the same size
+// Now the user doesn't know how thw cat is implemented
 typedef struct _cat *Cat;
 
 // Create a new 'Cat'
