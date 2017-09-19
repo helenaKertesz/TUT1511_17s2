@@ -5,32 +5,14 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+#include "cat.h"
+
 // a struct is a container that can hold several types
 // structs are generally declared before main.
 
 // For eample, if you wanted a "cat" type that holds
 //several bits of information about a cat, we could make:
-typedef struct _cat{
-    char* name;
-    double weight;
-    int age;
-} cat;
 
-
-int getHumanAge( cat c );
-void printInfo( cat c);
-
-int main(){
-
-    cat myCat;
-    myCat.name = "Kitkat";
-    myCat.weight = 11.2;
-    myCat.age = 7;
-
-    printInfo(myCat);
-    printf("Equivalent to %d human years\n", getHumanAge(myCat));
-
-}
 
 int getHumanAge( cat c ){
     int humanAge;
