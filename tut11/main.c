@@ -21,5 +21,17 @@ int main(){
     listInsertHead(l,3);
     listPrint(l);
 
+    printf("\n --DELETING FROM TAIL--\n");
+    listDeleteTail(l);
+    listPrint(l);
+
+    printf("\n --DELETING FROM TAIL--\n");
+    listDeleteTail(l);
+    listPrint(l);
+
+    printf("\n --DELETING FROM TAIL--\n");
+    listDeleteTail(l);
+    listPrint(l);
+
     return EXIT_SUCCESS;
 }

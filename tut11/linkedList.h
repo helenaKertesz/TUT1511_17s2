@@ -29,13 +29,7 @@ void listPrint (List l);
 // insert an element at the start of the list
 void listInsertHead (List l, int val);
 
-// insert an element at the end of the list
-void listInsertTail (List l, int val);
-
-// delete an element at the start of the list
-void listDeleteHead (List l);
-
-// delete an element at the end of the list
-void listDeleteTail (List l);
+// deletes an element from the tail of the list
+void listDeleteTail( List l );
 
 #endif // !defined(LIST_H_)
